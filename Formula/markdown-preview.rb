@@ -1,8 +1,8 @@
 class MarkdownPreview < Formula
   desc "Generate PDF previews of Markdown files for macOS Finder Quick Look"
   homepage "https://github.com/badriram/markdown-preview"
-  url "https://github.com/badriram/markdown-preview/archive/refs/tags/v0.1.3.tar.gz"
-  sha256 "957462840d2b201b90b33987e69daa54629c06575425b570b21f8d7d2a8a50ff"
+  url "https://github.com/badriram/markdown-preview/archive/refs/tags/v0.1.4.tar.gz"
+  sha256 "f4a900b576952230ec4238892ecc90c48f4036a2c5532f0266d8e108e87ca981"
   license "MIT"
 
   depends_on "pandoc"
@@ -27,20 +27,20 @@ class MarkdownPreview < Formula
   end
 
   def post_install
-    # Install Quick Action for current user
-    system "#{bin}/markdown-preview", "--install"
+    # Try to install Quick Action for current user (may fail due to macOS sandboxing)
+    if !system("#{bin}/markdown-preview", "--install")
+      opoo "Could not auto-install Quick Action. Run manually: markdown-preview --install"
+    end
   end
 
   def caveats
     <<~EOS
-      Quick Action installed for current user.
+      If the Quick Action wasn't installed automatically, run:
+        markdown-preview --install
 
       Usage:
         • Right-click any .md file in Finder → Quick Actions → Markdown Preview
         • Or from terminal: markdown-preview /path/to/file.md
-
-      Other users on this Mac need to run:
-        markdown-preview --install
 
       For system-wide install (all users):
         sudo markdown-preview --install-system
