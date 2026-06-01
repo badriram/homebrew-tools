@@ -5,21 +5,21 @@
 class Bonsai < Formula
   desc "Cheap, opinionated Kubernetes provisioner for small teams (AWS, Hetzner)"
   homepage "https://github.com/badriram/bonsai"
-  version "0.2.0"
+  version "0.2.1"
   license "Apache-2.0"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/badriram/bonsai/releases/download/v0.2.0/bonsai_0.2.0_darwin_amd64.tar.gz"
-      sha256 "cad95285bbfdfbb5161d596a4ef9736987d8788dcf66d8709cfbc4eb241bd58c"
+      url "https://github.com/badriram/bonsai/releases/download/v0.2.1/bonsai_0.2.1_darwin_amd64.tar.gz"
+      sha256 "914477a80580828dd113300d2d560ae3046fb4ce63acdf33cdd575d6e8b5be89"
 
       define_method(:install) do
         bin.install "bonsai"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/badriram/bonsai/releases/download/v0.2.0/bonsai_0.2.0_darwin_arm64.tar.gz"
-      sha256 "d5fe04a49caf8f3f35f8cb1bf2a7b08c58edbabda8850bf6179ed0c3f606646e"
+      url "https://github.com/badriram/bonsai/releases/download/v0.2.1/bonsai_0.2.1_darwin_arm64.tar.gz"
+      sha256 "633130add9c2e3d2c4509d1c423e199cc3d6f2c9d6b4e54bc85689add2886d66"
 
       define_method(:install) do
         bin.install "bonsai"
@@ -29,15 +29,15 @@ class Bonsai < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/badriram/bonsai/releases/download/v0.2.0/bonsai_0.2.0_linux_amd64.tar.gz"
-      sha256 "741358225d7e7ef22d108084fe3ef1ac54515fa937ba52aac38874a8c9e9338c"
+      url "https://github.com/badriram/bonsai/releases/download/v0.2.1/bonsai_0.2.1_linux_amd64.tar.gz"
+      sha256 "6d0034328c4fbee044c279dd554de37590c20b5b2e83dc280b6b77f7c3290cb7"
       define_method(:install) do
         bin.install "bonsai"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/badriram/bonsai/releases/download/v0.2.0/bonsai_0.2.0_linux_arm64.tar.gz"
-      sha256 "36979f34c9ca95d35c4fb99344a5d50c05d9c2880d2a1b0903e4f5d1bb522b09"
+      url "https://github.com/badriram/bonsai/releases/download/v0.2.1/bonsai_0.2.1_linux_arm64.tar.gz"
+      sha256 "a62a4eef08e2120ac9a75dea3cb54a1e431a27724b0eb9a94f5f9d80ea0c3460"
       define_method(:install) do
         bin.install "bonsai"
       end
